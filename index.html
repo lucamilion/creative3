@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/creative3/styles.css" />
+    <title>Sh*t Trump Says</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="titleCard">
+            <h1>Sh*t Trump Says</h1>
+            <h3>The Dumbest Things Trump Has Said About...</h3>
+            <form v-on:submit.prevent="fetchQuotes">
+                <input type="text" v-model="query">
+            </form>
+        </div>
+        <div v-if="noResults" id="noResults">
+            <p>Sorry, no results...</p>
+        </div>
+        <div v-else>
+            <ul>
+                <li v-for="quote in quotes">
+                    <blockquote class="twitter-tweet">
+                        <img src="/creative3/trumptwitter.png">
+                        <p> {{ quote.value }}
+                        </p>
+                    </blockquote>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <footer>
+        <a href="">GitHub</a>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/creative3/script.js"></script>
+</body>
+
+</html>
